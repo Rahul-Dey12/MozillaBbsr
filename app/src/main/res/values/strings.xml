@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MozillaBbsr</string>
+    <string name="home">Home</string>
+    <string name="aboutus">About</string>
+    <string name="team">Team</string>
+    <string name="gallery">Gallery</string>
+    <string name="contact">Contact</string>
+</resources>
