@@ -7,11 +7,21 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.GridView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    RecyclerView upRecyclerView;
+    RecyclerView psRecyclerView;
+    Data upData;
+    Data psData;
+    ArrayList<Data> upDataList;
+    ArrayList<Data> psDataList;
+    Toolbar myToolbar;
 
     private DrawerLayout drawerLayout;
     @Override
@@ -31,14 +41,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
+        myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
 
-       GridView gridview = (GridView) findViewById(R.id.grid_view);
-       gridview.setAdapter(new ImageAdapter(this));
+        upDataList = new ArrayList<Data>();
+        upRecyclerView = findViewById(R.id.up_recyclerview);
+        GridLayoutManager upGridLayoutManager = new GridLayoutManager(MainActivity.this, 3);
+        upRecyclerView.setLayoutManager(upGridLayoutManager);
+
+        upData =new Data(R.drawable.hackathon,"Hackathon");
+        upDataList.add(upData);
+        upData =new Data(R.drawable.recuritment,"recuritment");
+        upDataList.add(upData);
+        upData =new Data(R.drawable.webvr,"WebVr");
+        upDataList.add(upData);
+
+        DataAdapter upAdapter=new DataAdapter(MainActivity.this, upDataList);
+        upRecyclerView.setAdapter(upAdapter);
+
+        psDataList = new ArrayList<Data>();
+        psRecyclerView = findViewById(R.id.ps_recyclerview);
+        GridLayoutManager psGridLayoutManager = new GridLayoutManager(MainActivity.this, 3);
+        psRecyclerView.setLayoutManager(psGridLayoutManager);
+
+        psData =new Data(R.drawable.github,"OpenSource");
+        psDataList.add(psData);
+        psData =new Data(R.drawable.rust,"Rust");
+        psDataList.add(psData);
+        psData =new Data(R.drawable.googlemini,"Googlemini");
+        psDataList.add(psData);
+
+        DataAdapter psAdapter=new DataAdapter(MainActivity.this, psDataList);
+        psRecyclerView.setAdapter(psAdapter);
 
     }
 
