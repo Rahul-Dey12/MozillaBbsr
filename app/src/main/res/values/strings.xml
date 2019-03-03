@@ -8,4 +8,5 @@
     <string name="event_title">title</string>
     <string name="upcoming_events">Upcoming Events</string>
     <string name="past_events">Past Events</string>
+    <string name="more">More</string>
 </resources>

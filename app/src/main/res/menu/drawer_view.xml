@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="@string/home"/>
-        <item
-            android:id="@+id/nav_about"
-            android:title="@string/aboutus"/>
+            android:title="@string/home"
+            android:icon="@drawable/ic_home_black_24dp"/>
         <item
             android:id="@+id/nav_team"
-            android:title="@string/team"/>
+            android:title="@string/team"
+            android:icon="@drawable/ic_group_black_24dp"/>
         <item
             android:id="@+id/nav_gallery"
-            android:title="@string/gallery"/>
+            android:title="@string/gallery"
+            android:icon="@drawable/ic_photo_black_24dp"/>
         <item
-            android:id="@+id/nav_contact"
-            android:title="@string/contact"/>
-    </group>
+        android:id="@+id/nav_more"
+        android:title="@string/more"
+        android:icon="@drawable/ic_more_black_24dp"/>
 </menu>
