@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         upDataList = new ArrayList<Data>();
         upRecyclerView = findViewById(R.id.up_recyclerview);
-        GridLayoutManager upGridLayoutManager = new GridLayoutManager(MainActivity.this, 3);
+        GridLayoutManager upGridLayoutManager = new GridLayoutManager(MainActivity.this, 2);
         upRecyclerView.setLayoutManager(upGridLayoutManager);
 
         upData =new Data(R.drawable.hackathon,"Hackathon");
