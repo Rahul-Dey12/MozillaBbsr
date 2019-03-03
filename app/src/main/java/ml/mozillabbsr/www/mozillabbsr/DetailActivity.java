@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
-    ImageView mFlower;
+    ImageView mImage;
     TextView mTitle;
 
     @Override
@@ -14,12 +14,12 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        mFlower = findViewById(R.id.ivImage);
+        mImage = findViewById(R.id.ivImage);
         mTitle = findViewById(R.id.tvDescription);
 
         Bundle mBundle = getIntent().getExtras();
         if (mBundle != null) {
-            mFlower.setImageResource(mBundle.getInt("Image"));
+            mImage.setImageResource(mBundle.getInt("Image"));
             mTitle.setText(mBundle.getString("Title"));
         }
     }
