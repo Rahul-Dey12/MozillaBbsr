@@ -1,6 +1,7 @@
 package ml.mozillabbsr.www.mozillabbsr;
 
 import android.support.annotation.NonNull;
+import android.support.design.bottomappbar.BottomAppBar;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
        /* drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
