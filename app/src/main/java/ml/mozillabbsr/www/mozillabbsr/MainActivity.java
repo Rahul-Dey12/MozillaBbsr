@@ -2,6 +2,8 @@ package ml.mozillabbsr.www.mozillabbsr;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -46,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);*/
-
-        upDataList = new ArrayList<Data>();
+        loadFragment(new HomeFragment());
+        /*upDataList = new ArrayList<Data>();
         upRecyclerView = findViewById(R.id.up_recyclerview);
-        GridLayoutManager upGridLayoutManager = new GridLayoutManager(MainActivity.this, 2);
+        GridLayoutManager upGridLayoutManager = new GridLayoutManager(MainActivity.this, 3);
         upRecyclerView.setLayoutManager(upGridLayoutManager);
 
         upData =new Data(R.drawable.hackathon,"Hackathon");
@@ -75,10 +77,16 @@ public class MainActivity extends AppCompatActivity {
         psDataList.add(psData);
 
         DataAdapter psAdapter=new DataAdapter(MainActivity.this, psDataList);
-        psRecyclerView.setAdapter(psAdapter);
+        psRecyclerView.setAdapter(psAdapter);*/
 
     }
-
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
    /* @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
