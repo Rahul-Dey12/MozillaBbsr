@@ -6,6 +6,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,12 +26,19 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Data> upDataList;
     ArrayList<Data> psDataList;
     Toolbar myToolbar;
+    ViewPager viewpager;
+    SlideAdapter myadapter;
 
     private DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Viewpager code:
+        viewpager=findViewById(R.id.viewpager);
+
+        myadapter=new SlideAdapter(this);
+        viewpager.setAdapter(myadapter);
 
 
        /* drawerLayout = findViewById(R.id.drawer_layout);
