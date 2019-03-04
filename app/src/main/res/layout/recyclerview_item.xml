@@ -15,7 +15,7 @@
 
             <ImageView
                 android:id="@+id/image_view"
-                android:layout_width="139dp"
+                android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:src="@drawable/hackathon" />
             <TextView
