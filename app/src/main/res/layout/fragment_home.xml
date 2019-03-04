@@ -23,6 +23,7 @@
             android:textSize="20sp"
             android:textStyle="italic|bold" />
 
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/up_recyclerview"
             android:layout_width="match_parent"
