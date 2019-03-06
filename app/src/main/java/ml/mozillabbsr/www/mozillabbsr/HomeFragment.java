@@ -3,9 +3,7 @@ package ml.mozillabbsr.www.mozillabbsr;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,10 +32,6 @@ public class HomeFragment extends Fragment {
 
         myadapter=new SlideAdapter(getActivity());
         viewpager.setAdapter(myadapter);
-        viewpager.setAdapter(myadapter);
-
-        TabLayout tabLayout = (TabLayout) mview.findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewpager, true);
 
         mDataList = new ArrayList<Data>();
         mRecyclerView = mview.findViewById(R.id.up_recyclerview);
@@ -46,7 +40,7 @@ public class HomeFragment extends Fragment {
 
         mData =new Data(R.drawable.hackathon,"Hackathon");
         mDataList.add(mData);
-        mData =new Data(R.drawable.recuritment,"Recruitment");
+        mData =new Data(R.drawable.recuritment,"recuritment");
         mDataList.add(mData);
         mData =new Data(R.drawable.webvr,"WebVr");
         mDataList.add(mData);
