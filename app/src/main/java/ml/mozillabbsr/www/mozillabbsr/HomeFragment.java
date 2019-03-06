@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 
 import java.util.ArrayList;
 
@@ -35,8 +37,8 @@ public class HomeFragment extends Fragment {
 
         mDataList = new ArrayList<Data>();
         mRecyclerView = mview.findViewById(R.id.up_recyclerview);
-        GridLayoutManager upGridLayoutManager = new GridLayoutManager(getActivity(), 2);
-        mRecyclerView.setLayoutManager(upGridLayoutManager);
+       // GridLayoutManager upGridLayoutManager = new GridLayoutManager(getActivity(), 1);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         mData =new Data(R.drawable.hackathon,"Hackathon");
         mDataList.add(mData);
