@@ -1,11 +1,8 @@
 package ml.mozillabbsr.www.mozillabbsr;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -18,9 +15,12 @@ import java.util.ArrayList;
 
 
 public class HomeFragment extends Fragment {
-    RecyclerView mRecyclerView;
-    Data mData;
-    ArrayList<Data> mDataList;
+    RecyclerView upRecyclerView;
+    Data upData;
+    ArrayList<Data> upDataList;
+    RecyclerView psRecyclerView;
+    Data psData;
+    ArrayList<Data> psDataList;
     Toolbar myToolbar;
     ViewPager viewpager;
     SlideAdapter myadapter;
@@ -35,28 +35,34 @@ public class HomeFragment extends Fragment {
         myadapter=new SlideAdapter(getActivity());
         viewpager.setAdapter(myadapter);
 
-        mDataList = new ArrayList<Data>();
-        mRecyclerView = mview.findViewById(R.id.up_recyclerview);
+        upDataList = new ArrayList<>();
+        upRecyclerView = mview.findViewById(R.id.up_recyclerview);
        // GridLayoutManager upGridLayoutManager = new GridLayoutManager(getActivity(), 1);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        upRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mData =new Data(R.drawable.hackathon,"Hackathon");
-        mDataList.add(mData);
-        mData =new Data(R.drawable.recuritment,"recuritment");
-        mDataList.add(mData);
-        mData =new Data(R.drawable.webvr,"WebVr");
-        mDataList.add(mData);
+        upData =new Data(R.drawable.hackathon,"Hackathon");
+        upDataList.add(upData);
+        upData =new Data(R.drawable.webvr,"WebVr");
+        upDataList.add(upData);
 
 
-        mData =new Data(R.drawable.github,"OpenSource");
-        mDataList.add(mData);
-        mData =new Data(R.drawable.rust,"Rust");
-        mDataList.add(mData);
-        mData =new Data(R.drawable.googlemini,"Googlemini");
-        mDataList.add(mData);
 
-        DataAdapter upAdapter=new DataAdapter(getActivity(), mDataList);
-        mRecyclerView.setAdapter(upAdapter);
+        DataAdapter upAdapter=new DataAdapter(getActivity(), upDataList);
+        upRecyclerView.setAdapter(upAdapter);
+
+        psDataList = new ArrayList<>();
+        psRecyclerView = mview.findViewById(R.id.ps_recyclerview);
+        psRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        psData =new Data(R.drawable.rust,"Rust");
+        psDataList.add(psData);
+        psData =new Data(R.drawable.github,"Open Source");
+        psDataList.add(psData);
+        psData =new Data(R.drawable.googlemini,"Googlemini");
+        psDataList.add(psData);
+        DataAdapter psAdapter=new DataAdapter(getActivity(), psDataList);
+        psRecyclerView.setAdapter(psAdapter);
+
         return mview;
     }
 }
