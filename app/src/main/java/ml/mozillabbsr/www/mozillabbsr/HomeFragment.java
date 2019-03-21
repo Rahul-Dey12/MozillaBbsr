@@ -40,9 +40,9 @@ public class HomeFragment extends Fragment {
        // GridLayoutManager upGridLayoutManager = new GridLayoutManager(getActivity(), 1);
         upRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        upData =new Data(R.drawable.hackathon,"Hackathon");
+        upData =new Data(R.drawable.github,"Hackathon");
         upDataList.add(upData);
-        upData =new Data(R.drawable.webvr,"WebVr");
+        upData =new Data(R.drawable.github,"WebVr");
         upDataList.add(upData);
 
 
@@ -54,11 +54,11 @@ public class HomeFragment extends Fragment {
         psRecyclerView = mview.findViewById(R.id.ps_recyclerview);
         psRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        psData =new Data(R.drawable.rust,"Rust");
+        psData =new Data(R.drawable.github,"Rust");
         psDataList.add(psData);
         psData =new Data(R.drawable.github,"Open Source");
         psDataList.add(psData);
-        psData =new Data(R.drawable.googlemini,"Googlemini");
+        psData =new Data(R.drawable.github,"Googlemini");
         psDataList.add(psData);
         DataAdapter psAdapter=new DataAdapter(getActivity(), psDataList);
         psRecyclerView.setAdapter(psAdapter);

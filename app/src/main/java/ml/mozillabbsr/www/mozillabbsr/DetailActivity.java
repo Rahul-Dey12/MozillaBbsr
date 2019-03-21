@@ -19,7 +19,7 @@ public class DetailActivity extends AppCompatActivity {
 
         Bundle mBundle = getIntent().getExtras();
         if (mBundle != null) {
-            mImage.setImageResource(mBundle.getInt("Image"));
+            //mImage.setImageResource(mBundle.getInt("Image"));
             mTitle.setText(mBundle.getString("Title"));
         }
     }

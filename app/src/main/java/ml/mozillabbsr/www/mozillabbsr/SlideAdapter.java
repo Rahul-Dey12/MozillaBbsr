@@ -21,9 +21,8 @@ public class SlideAdapter extends PagerAdapter {
     }
 
     public int[] lst_images={
-            R.drawable.crowdsource,
             R.drawable.github,
-            R.drawable.hackathon
+            R.drawable.github
     };
     @Override
     public int getCount() {

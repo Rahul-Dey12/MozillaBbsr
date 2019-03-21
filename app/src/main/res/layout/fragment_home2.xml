@@ -3,9 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bggreen2"
     tools:context="ml.mozillabbsr.www.mozillabbsr.HomeFragment">
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bggreen" />
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
