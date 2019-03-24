@@ -9,24 +9,29 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+
 import ml.mozillabbsr.www.mozillabbsr.R;
 
 public class SlideAdapter extends PagerAdapter {
 
     LayoutInflater layoutInflater;
     Context context;
+    ArrayList<String> lst_images;
+
+    public SlideAdapter(Context context, ArrayList<String> lst_images) {
+        this.context = context;
+        this.lst_images = lst_images;
+    }
 
     public SlideAdapter(Context context){
         this.context=context;
     }
-
-    public int[] lst_images={
-            R.drawable.github,
-            R.drawable.github
-    };
     @Override
     public int getCount() {
-        return lst_images.length;
+        return lst_images.size();
     }
 
     @Override
@@ -41,7 +46,7 @@ public class SlideAdapter extends PagerAdapter {
         View view=layoutInflater.inflate(R.layout.slide,container,false);
         LinearLayout layoutslide=(LinearLayout)view.findViewById(R.id.slidelinearlayout);
         ImageView imgslide=(ImageView)view.findViewById(R.id.slideimg);
-        imgslide.setImageResource(lst_images[position]);
+        Glide.with(context).load(lst_images.get(position)).into(imgslide);
         container.addView(view);
         return view;
     }

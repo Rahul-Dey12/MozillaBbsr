@@ -13,36 +13,36 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/image_view"
+            android:id="@+id/event_logo"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="7dp"
-            android:src="@drawable/hackathon" />
+            />
 
         <TextView
-            android:id="@+id/event_title"
+            android:id="@+id/event_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/text_date"
+            android:layout_above="@+id/event_date"
             android:layout_marginStart="13dp"
-            android:layout_toEndOf="@+id/image_view"
+            android:layout_toEndOf="@+id/event_logo"
             android:text="@string/event_title"
             android:textSize="18sp"
             android:textStyle="italic|bold" />
 
         <TextView
-            android:id="@+id/text_speaker"
+            android:id="@+id/event_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/event_title"
-            android:layout_below="@+id/text_date"
+            android:layout_alignStart="@+id/event_name"
+            android:layout_below="@+id/event_date"
             android:text="@string/mozilla_bbsr" />
 
         <TextView
-            android:id="@+id/text_date"
+            android:id="@+id/event_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

@@ -12,11 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <ImageView
-        android:id="@+id/ivImage"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:id="@+id/evImage"
+        android:layout_width="360dp"
+        android:layout_height="203dp"
         android:layout_gravity="center"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/googlemini"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,7 +25,7 @@
 
 
     <TextView
-        android:id="@+id/tvDescription"
+        android:id="@+id/evName"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -34,22 +34,22 @@
         android:text="TextView"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivImage" />
+        app:layout_constraintTop_toBottomOf="@+id/evImage" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:padding="5dp"
-        android:text="@string/mozilla_bbsr"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+        <TextView
+            android:id="@+id/evTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="5dp"
+            android:text="@string/mozilla_bbsr"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/evName" />
 
     <Button
-        android:id="@+id/tvRegister"
+        android:id="@+id/evRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -60,10 +60,10 @@
         android:textColor="#fff"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/evDate" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/evDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -71,10 +71,10 @@
         android:padding="5dp"
         android:text="00/00/00"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivImage" />
+        app:layout_constraintTop_toBottomOf="@+id/evImage" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/evDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -84,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/evRegister" />
 
     <TextView
         android:id="@+id/textView6"
@@ -95,21 +95,20 @@
         android:text="Speaker"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/evDesc" />
 
-    <GridView
-        android:id="@+id/sp_gridview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:numColumns="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        android:horizontalSpacing="10dp"
-        android:verticalSpacing="10dp"
-        />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/sp_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+
+
+            />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

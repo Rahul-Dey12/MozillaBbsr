@@ -13,8 +13,4 @@
             android:id="@+id/nav_gallery"
             android:title="@string/gallery"
             android:icon="@drawable/ic_photo_black_24dp"/>
-        <item
-        android:id="@+id/nav_more"
-        android:title="@string/more"
-        android:icon="@drawable/ic_more_black_24dp"/>
 </menu>

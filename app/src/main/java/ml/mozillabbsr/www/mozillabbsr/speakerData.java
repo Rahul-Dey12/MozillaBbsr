@@ -5,21 +5,24 @@ package ml.mozillabbsr.www.mozillabbsr;
  */
 
 public class speakerData {
-    int imgurl;
+    String imgurl;
     String name;
     String title;
 
-    public speakerData(int imgurl, String name, String title) {
+    public speakerData() {
+    }
+
+    public speakerData(String imgurl, String name, String title) {
         this.imgurl = imgurl;
         this.name = name;
         this.title = title;
     }
 
-    public int getImgurl() {
+    public String getImgurl() {
         return imgurl;
     }
 
-    public void setImgurl(int imgurl) {
+    public void setImgurl(String imgurl) {
         this.imgurl = imgurl;
     }
 
