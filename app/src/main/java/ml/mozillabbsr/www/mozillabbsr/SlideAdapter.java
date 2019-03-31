@@ -46,7 +46,7 @@ public class SlideAdapter extends PagerAdapter {
         View view=layoutInflater.inflate(R.layout.slide,container,false);
         LinearLayout layoutslide=(LinearLayout)view.findViewById(R.id.slidelinearlayout);
         ImageView imgslide=(ImageView)view.findViewById(R.id.slideimg);
-        Glide.with(context).load(lst_images.get(position)).into(imgslide);
+        Glide.with(context).load(lst_images.get(position)).thumbnail(0.1f).into(imgslide);
         container.addView(view);
         return view;
     }

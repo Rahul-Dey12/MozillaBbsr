@@ -35,7 +35,7 @@ public class eventDataAdapter extends RecyclerView.Adapter<mViewHolder>{
     }
     @Override
     public void onBindViewHolder(final mViewHolder holder, final int position) {
-        Glide.with(mcontext).load(mDataList.get(position).getLogourl()).into(holder.mImage);
+        Glide.with(mcontext).load(mDataList.get(position).getLogourl()).thumbnail(0.1f).into(holder.mImage);
         holder.mName.setText(mDataList.get(position).getName());
         holder.mTitle.setText(mDataList.get(position).getTitle());
         holder.mDate.setText(mDataList.get(position).getDate());
@@ -48,10 +48,6 @@ public class eventDataAdapter extends RecyclerView.Adapter<mViewHolder>{
                 mIntent.putExtra("eName",mDataList.get(position).getName());
                 mIntent.putExtra("eTitle",mDataList.get(position).getTitle());
                 mIntent.putExtra("eDate",mDataList.get(position).getDate());
-                mIntent.putExtra("eReglink",mDataList.get(position).getReglink());
-                mIntent.putExtra("eDescription",mDataList.get(holder.getAdapterPosition()).getDesc());
-                //mIntent.putExtra("eSpeaker",mDataList.get(position).getSpid());
-                //mIntent.putExtra("Image", mDataList.get(holder.getAdapterPosition()).getLogourl());
                 mcontext.startActivity(mIntent);
             }
         });

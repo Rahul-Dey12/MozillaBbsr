@@ -42,7 +42,7 @@ public class memberAdapter extends RecyclerView.Adapter<meViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull final meViewHolder meViewHolder, int i) {
-        Glide.with(mcontext).load(mDataList.get(i).getImgurl()).placeholder(R.drawable.ic_account_circle_black_24dp).into(meViewHolder.mImage);
+        Glide.with(mcontext).load(mDataList.get(i).getImgurl()).thumbnail(0.1f).placeholder(R.drawable.ic_account_circle_black_24dp).into(meViewHolder.mImage);
         meViewHolder.mName.setText(mDataList.get(i).getName());
         meViewHolder.mTitle.setText(mDataList.get(i).getTitle());
         meViewHolder.mDesc.setText(mDataList.get(i).getDesg());

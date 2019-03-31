@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">MozillaBbsr</string>
     <string name="home">Home</string>
-    <string name="aboutus">About</string>
+    <string name="aboutus">About Us</string>
     <string name="team">Team</string>
     <string name="gallery">Gallery</string>
-    <string name="contact">Contact</string>
+    <string name="contact">Contact Us</string>
     <string name="event_title">title</string>
     <string name="upcoming_events">Upcoming Events</string>
     <string name="past_events">Past Events</string>
@@ -12,8 +12,22 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fames ac turpis egestas integer eget aliquet. Dis parturient montes nascetur ridiculus mus mauris vitae. Venenatis urna cursus eget nunc scelerisque viverra mauris. Ultrices eros in cursus turpis massa tincidunt dui ut. Varius duis at consectetur lorem donec massa. Ullamcorper malesuada proin libero nunc. Egestas maecenas pharetra convallis posuere morbi.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="why_mozilla_ans">"Mozilla Clubs are a unique and personal way to teach the Web in local communities. They are made up of technologists, thinkers and builders working together to keep the Internet alive and accessible, so people worldwide can be informed contributors and creators of digital world. All clubs include:
+        <b>\nInterest-based, peer-supported learning.
+        \nCurriculum that’s free, open and educator-tested
+        \nBest practices and community mentorship.
+            \nRegular engagement.</b>"</string>
+    <string name="about_us_ans">"Mozilla Clubs are a global network of community members that share Mozilla’s mission to ensure the Internet is a global public resource, open and accessible to all. Mozilla provides free training and resources to help clubs succeed and grow digital literacy in community spaces.Mozilla Club Bhubaneswar is a group of tech geeks who are eager to spred knowledge using powerful teaching tools.The tool can belong to any platform or be anything like website, an android app, a project with disruptive technology. It can also be a non-technical project like an activity or a game which helps in the process of teaching in a fun manner."</string>
     <string name="events">Events</string>
     <string name="mozilla_bbsr">mozilla bbsr</string>
     <string name="register">Register</string>
     <string name="our_team">Our team</string>
+    <string name="why_mozilla_clubs">Why Mozilla Clubs?</string>
+    <string name="heading_font_size">"28sp"</string>
+    <string name="school_of_computer_science">School Of Computer Science</string>
+    <string name="kiit_deemed_to_be_university">KIIT Deemed to be University</string>
+    <string name="mozilla_phn">+91-7504417023</string>
+    <string name="mon_to_fri_9am_to_6_pm">Mon to Fri 9am to 6 pm</string>
+    <string name="mozilla_mail">mozillabbsr@gmail.com</string>
+    <string name="send_us_your_query_anytime">Send us your query anytime!</string>
 </resources>

@@ -4,10 +4,13 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,15 +27,28 @@ public class TeamFragment extends Fragment {
     private DatabaseReference mref;
     private memberAdapter mymemberAdapter;
     private ProgressDialog progressDialog;
+    TextView descText,descText2;
+    ImageButton plus,plus2, minus,minus2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_team, container, false);
+
+        descText = (TextView) view.findViewById(R.id.description_text);
+        plus = (ImageButton) view.findViewById(R.id.plus);
+        minus = (ImageButton) view.findViewById(R.id.minus);
+        descText2 = (TextView) view.findViewById(R.id.description_text2);
+        plus2 = (ImageButton) view.findViewById(R.id.plus2);
+        minus2 = (ImageButton) view.findViewById(R.id.minus2);
+
+        clickevent();
+
+
         mref= FirebaseDatabase.getInstance().getReference().child("members");
         recyclerView=view.findViewById(R.id.member_recyclerview);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         progressDialog=new ProgressDialog(getActivity());
         progressDialog.setMessage("Getting Information.....");
         progressDialog.show();
@@ -64,6 +80,55 @@ public class TeamFragment extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+    void clickevent(){
+        plus.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                plus.setVisibility(View.GONE);
+                minus.setVisibility(View.VISIBLE);
+                descText.setMaxLines(Integer.MAX_VALUE);
+
+            }
+        });
+
+        minus.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                minus.setVisibility(View.GONE);
+                plus.setVisibility(View.VISIBLE);
+                descText.setMaxLines(5);
+
+            }
+        });
+        plus2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                plus2.setVisibility(View.GONE);
+                minus2.setVisibility(View.VISIBLE);
+                descText2.setMaxLines(Integer.MAX_VALUE);
+
+            }
+        });
+
+        minus2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                minus2.setVisibility(View.GONE);
+                plus2.setVisibility(View.VISIBLE);
+                descText2.setMaxLines(5);
+
+            }
+        });
+
     }
 
 }

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/evImage"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="203dp"
         android:layout_gravity="center"
         android:scaleType="centerCrop"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
+    <TextViewI
         android:id="@+id/evName"
         android:layout_width="230dp"
         android:layout_height="wrap_content"

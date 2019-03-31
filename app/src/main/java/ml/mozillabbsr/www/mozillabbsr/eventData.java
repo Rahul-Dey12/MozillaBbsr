@@ -9,21 +9,17 @@ public class eventData {
     String name;
     String date;
     String title;
-    String desc;
     String poster;
-    String reglink;
     String key;
     public eventData() {
     }
 
-    public eventData(String logourl, String name, String date, String title, String desc, String poster, String reglink) {
+    public eventData(String logourl, String name, String date, String title, String poster) {
         this.logourl = logourl;
         this.name = name;
         this.date = date;
         this.title = title;
-        this.desc = desc;
         this.poster = poster;
-        this.reglink = reglink;
     }
 
     public String getLogourl() {
@@ -58,12 +54,12 @@ public class eventData {
         this.title = title;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getKey() {
+        return key;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getPoster() {
@@ -72,21 +68,5 @@ public class eventData {
 
     public void setPoster(String poster) {
         this.poster = poster;
-    }
-
-    public String getReglink() {
-        return reglink;
-    }
-
-    public void setReglink(String reglink) {
-        this.reglink = reglink;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
     }
 }

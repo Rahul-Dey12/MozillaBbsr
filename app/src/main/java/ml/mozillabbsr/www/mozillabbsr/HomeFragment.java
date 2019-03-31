@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View mview = inflater.inflate(R.layout.fragment_home2, container, false);
 
-        mref = FirebaseDatabase.getInstance().getReference().child("event");
+        mref = FirebaseDatabase.getInstance().getReference();
         viewpager=mview.findViewById(R.id.viewpager);
         posterLink=new ArrayList<>();
         myadapter=new SlideAdapter(getActivity(),posterLink);
@@ -74,11 +74,10 @@ public class HomeFragment extends Fragment {
     }
 
     private void prepareData() {
-        mref.addValueEventListener(new ValueEventListener() {
+        mref.child("event").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot qslistsnapshot : dataSnapshot.getChildren())
-                {
+                for(DataSnapshot qslistsnapshot : dataSnapshot.getChildren()) {
                     try {
                         eventData eventData = qslistsnapshot.getValue(eventData.class);
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -92,45 +91,43 @@ public class HomeFragment extends Fragment {
                         if (date2.after(date1)) {
                             upDataList.add(eventData);
                             upAdapter.notifyDataSetChanged();
-                            posterLink.add(eventData.getPoster());
-                            myadapter.notifyDataSetChanged();
 
-                        }
-                        else {
+                        } else {
                             psDataList.add(eventData);
                             psAdapter.notifyDataSetChanged();
                         }
                         eventData.setKey(qslistsnapshot.getKey());
 
-                    }catch (Exception e){}
+                    } catch (Exception e) {
+                    }
+                    progressDialog.dismiss();
                 }
-                progressDialog.dismiss();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-    }
-
-    private void prepareupData() {
-        mref.child("upcoming").addValueEventListener(new ValueEventListener() {
+        mref.child("banner").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot qslistsnapshot : dataSnapshot.getChildren())
-                {
+                for(DataSnapshot qslistsnapshot : dataSnapshot.getChildren()) {
                     try {
-                        eventData eventData = qslistsnapshot.getValue(eventData.class);
-                        upDataList.add(eventData);
+                        String posurl = qslistsnapshot.getValue(String.class);
+                        posterLink.add(posurl);
 
-                    }catch (Exception e){}
+                    } catch (Exception e) {
+
+
+                    }
                 }
-                upAdapter.notifyDataSetChanged();
-                progressDialog.dismiss();
+                myadapter.notifyDataSetChanged();
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+
             }
         });
     }

@@ -38,7 +38,7 @@ public class speakerAdapter extends RecyclerView.Adapter<spViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull spViewHolder spViewHolder, int i) {
-        Glide.with(mcontext).load(mspeakerDataList.get(i).getImgurl()).into(spViewHolder.mImage);
+        Glide.with(mcontext).load(mspeakerDataList.get(i).getImgurl()).thumbnail(0.01f).into(spViewHolder.mImage);
         spViewHolder.mName.setText(mspeakerDataList.get(i).getName());
         spViewHolder.mTitle.setText(mspeakerDataList.get(i).getTitle());
     }

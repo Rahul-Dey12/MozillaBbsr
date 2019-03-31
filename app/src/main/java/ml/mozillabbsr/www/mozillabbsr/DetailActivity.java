@@ -1,5 +1,6 @@
 package ml.mozillabbsr.www.mozillabbsr;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class DetailActivity extends AppCompatActivity {
     speakerAdapter myspeakerAdapter;
     String eLink;
     String ekey;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,21 +48,24 @@ public class DetailActivity extends AppCompatActivity {
         mDesc = findViewById(R.id.evDesc);
         mReg = findViewById(R.id.evRegister);
 
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Getting Data.....");
+        progressDialog.show();
         recyclerView = findViewById(R.id.sp_gridview);
 
 
         Bundle mBundle = getIntent().getExtras();
         if (mBundle != null) {
-            ekey=mBundle.getString("eKey");
+            ekey = mBundle.getString("eKey");
             Glide.with(this).load(mBundle.getString("ePoster")).into(mImage);
             mName.setText(mBundle.getString("eName"));
             mTitle.setText(mBundle.getString("eTitle"));
             mDate.setText(mBundle.getString("eDate"));
-            mDesc.setText(mBundle.getString("eDescription"));
-            eLink = mBundle.getString("eReglink");
+           // mDesc.setText(mref.child("desc").v);
+            //eLink = mBundle.getString("eReglink");
 
         }
-        mref = FirebaseDatabase.getInstance().getReference().child("event").child(ekey).child("speaker");
+        mref = FirebaseDatabase.getInstance().getReference().child("event").child(ekey);
         mReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,9 +78,6 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         marrayList = new ArrayList<>();
-        /*marrayList.add(new speakerData(R.drawable.github,"Rahul","CSE"));
-        marrayList.add(new speakerData(R.drawable.github,"Arko","IT"));
-        marrayList.add(new speakerData(R.drawable.github,"Ritik","IT"));*/
 
         myspeakerAdapter = new speakerAdapter(this, marrayList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -84,7 +86,29 @@ public class DetailActivity extends AppCompatActivity {
         recyclerView.setFocusable(false);
     }
     private void prepareData() {
-        mref.addValueEventListener(new ValueEventListener() {
+        mref.child("desc").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mDesc.setText(dataSnapshot.getValue(String.class));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        mref.child("reglink").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                eLink=dataSnapshot.getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        mref.child("speaker").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot qslistsnapshot : dataSnapshot.getChildren())
@@ -96,6 +120,7 @@ public class DetailActivity extends AppCompatActivity {
                     }catch (Exception e){}
                 }
                 myspeakerAdapter.notifyDataSetChanged();
+                progressDialog.dismiss();
             }
 
             @Override
