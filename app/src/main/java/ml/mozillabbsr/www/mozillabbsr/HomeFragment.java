@@ -2,6 +2,8 @@ package ml.mozillabbsr.www.mozillabbsr;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
@@ -37,8 +41,9 @@ public class HomeFragment extends Fragment {
     ViewPager viewpager;
     SlideAdapter myadapter;
     private DatabaseReference mref;
-    private ProgressDialog progressDialog;
     eventDataAdapter psAdapter;
+    ProgressBar progressBar;
+    ConstraintLayout mcontainer;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,9 +60,11 @@ public class HomeFragment extends Fragment {
         //eventData upData =new eventData("https://firebasestorage.googleapis.com/v0/b/mozillabbsr-47731.appspot.com/o/hackathon_newlogo.jpg?alt=media&token=595627f5-afdb-4ec3-bccf-5fb6005d6081","Hackathon", "10/03/2019", "mozillabbsr");
         //upDataList.add(upData);
 
-        progressDialog=new ProgressDialog(getActivity());
-        progressDialog.setMessage("Getting Information.....");
-        progressDialog.show();
+        progressBar = mview.findViewById(R.id.progressBar);
+        mcontainer = mview.findViewById(R.id.container_home);
+        progressBar.setVisibility(View.VISIBLE);
+        mcontainer.setVisibility(View.GONE);
+
 
         upRecyclerView = mview.findViewById(R.id.up_recyclerview);
         upRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -100,7 +107,8 @@ public class HomeFragment extends Fragment {
 
                     } catch (Exception e) {
                     }
-                    progressDialog.dismiss();
+                    progressBar.setVisibility(View.GONE);
+                    mcontainer.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -131,5 +139,11 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
     }
+}
 

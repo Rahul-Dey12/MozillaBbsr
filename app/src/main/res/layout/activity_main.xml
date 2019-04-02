@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="ml.mozillabbsr.www.mozillabbsr.MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bggreen" />
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
